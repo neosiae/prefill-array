@@ -4,7 +4,7 @@ module.exports = (number, value) => {
 
   if (typeOfNumber !== 'number' && !isInteger) {
     throw new TypeError(
-      `Number type is invalid. Expected an integer, but got: ${typeOfNumber}`,
+      `Number type is invalid. Expected an integer, but got: ${typeOfNumber}`
     );
   }
 
