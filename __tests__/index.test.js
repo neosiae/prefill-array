@@ -24,3 +24,11 @@ test('it works with undefined value', t => {
   t.deepEqual(actual, expected);
   t.end();
 });
+
+test('works with recursive function', t => {
+  const expected = [['2D', '2D'], ['2D', '2D']];
+  const actual = prefill(2, prefill(2, '2D'));
+
+  t.deepEqual(actual, expected);
+  t.end();
+});
