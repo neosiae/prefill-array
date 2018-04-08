@@ -42,7 +42,7 @@ test('should thrown an error with number as string', t => {
     t.equals(e.name, 'TypeError');
     t.equals(
       e.message,
-      'Number type is invalid. Expected an integer, but got: string'
+      'Number type is invalid. Expected an integer, but got: 25'
     );
     isError = true;
   }
@@ -57,6 +57,11 @@ test('should thrown an error with non-integer number', t => {
   try {
     prefill(1.5, 5);
   } catch (e) {
+    t.equals(e.name, 'TypeError');
+    t.equals(
+      e.message,
+      'Number type is invalid. Expected an integer, but got: 1.5'
+    );
     isError = true;
   }
 
