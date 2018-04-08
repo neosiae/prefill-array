@@ -20,6 +20,7 @@ console.log(leet);
 // → [ 1337, 1337, 1337, 1337, 1337 ]
 
 const recursive = prefill(4, prefill(2, '2D'));
+console.log(recursive);
 // → [ [ '2D', '2D' ], [ '2D', '2D' ], [ '2D', '2D' ], [ '2D', '2D' ] ]
 ```
 
