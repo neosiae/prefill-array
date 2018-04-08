@@ -15,7 +15,7 @@ Or via [yarn](https://yarnpkg.com/en):
 ## Usage
 
 ```javascript
-const prefill = require("prefill-array");
+const prefill = require('prefill-array');
 
 const leet = prefill(5, 1337);
 console.log(leet);
