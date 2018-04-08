@@ -1,6 +1,6 @@
 {
   "name": "prefill-array",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Prefill an array with values",
   "keywords": [
     "prefill",
@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "tape '__tests__/**/*.js'"    
+    "test": "tape '__tests__/**/*.js'"
   },
   "devDependencies": {
     "tape": "^4.9.0"
