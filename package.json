@@ -1,7 +1,12 @@
 {
   "name": "prefill-array",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Prefill an array with values",
+  "keywords": [
+    "prefill",
+    "fill",
+    "array"
+  ],
   "main": "index.js",
   "repository": "git@github.com:neosiae/prefill-array.git",
   "author": {

@@ -30,7 +30,7 @@ console.log(recursive);
 const newArray = prefill(number, value);
 ```
 
-> ### Parameters
+> __Parameters__
 
 __number__ 
 
@@ -40,7 +40,7 @@ __value__
 
 &nbsp;&nbsp; Value to use for filling.
 
-> ### Return value
+> __Return value__
 
 Returns the filled array.
 
