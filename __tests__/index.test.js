@@ -1,3 +1,5 @@
+'use strict';
+
 const prefill = require('../index');
 const test = require('tape');
 
