@@ -14,6 +14,7 @@ test('should work with any value', t => {
     { name: 'prefill' },
     { name: 'prefill' }
   ]);
+  t.deepEqual(prefill(5, true), [true, true, true, true, true]);
   t.end();
 });
 
