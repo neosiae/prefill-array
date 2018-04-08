@@ -1,34 +1,88 @@
 const prefill = require('../index');
 const test = require('tape');
 
-test('it works with numbers greater than 0', t => {
-  const expected = [1, 1, 1, 1, 1];
-  const actual = prefill(5, 1);
-
-  t.deepEqual(actual, expected);
+test('should work with number greater than 0', t => {
+  t.deepEqual(prefill(1, 1), [1]);
+  t.deepEqual(prefill(5, 1), [1, 1, 1, 1, 1]);
+  t.deepEqual(prefill(3, 1.5), [1.5, 1.5, 1.5]);
+  t.deepEqual(prefill(3, 'prefill'), ['prefill', 'prefill', 'prefill']);
+  t.deepEqual(prefill(2, [1337]), [[1337], [1337]]);
+  t.deepEqual(prefill(3, { name: 'prefill' }), [
+    { name: 'prefill' },
+    { name: 'prefill' },
+    { name: 'prefill' }
+  ]);
   t.end();
 });
 
-test('it works with number as 0', t => {
-  const expected = [];
-  const actual = prefill(0);
-
-  t.deepEqual(actual, expected);
+test('should work with number as 0', t => {
+  t.deepEqual(prefill(0), []);
   t.end();
 });
 
-test('it works with undefined value', t => {
-  const expected = [undefined, undefined, undefined];
-  const actual = prefill(3);
-
-  t.deepEqual(actual, expected);
+test('should work with undefined value', t => {
+  t.deepEqual(prefill(3), [undefined, undefined, undefined]);
   t.end();
 });
 
-test('works with recursive function', t => {
-  const expected = [['2D', '2D'], ['2D', '2D']];
-  const actual = prefill(2, prefill(2, '2D'));
+test('should work with recursive function', t => {
+  t.deepEqual(prefill(2, prefill(2, '2D')), [['2D', '2D'], ['2D', '2D']]);
+  t.end();
+});
 
-  t.deepEqual(actual, expected);
+test('should thrown an error with number as string', t => {
+  let isError = false;
+
+  try {
+    prefill('25', 5);
+  } catch (e) {
+    t.equals(e.name, 'TypeError');
+    t.equals(
+      e.message,
+      'Number type is invalid. Expected an integer, but got: string'
+    );
+    isError = true;
+  }
+
+  t.equals(isError, true);
+  t.end();
+});
+
+test('should thrown an error with non-integer number', t => {
+  let isError = false;
+
+  try {
+    prefill(1.5, 5);
+  } catch (e) {
+    isError = true;
+  }
+
+  t.equals(isError, true);
+  t.end();
+});
+
+test('should thrown an error with negative number', t => {
+  let isError = false;
+
+  try {
+    prefill(-5, 1);
+  } catch (e) {
+    isError = true;
+  }
+
+  t.equals(isError, true);
+  t.end();
+});
+
+test('should throw an error with number as infinity', t => {
+  let isError = false;
+
+  try {
+    prefill(Infinity, 1);
+  } catch (e) {
+    isError = true;
+  }
+
+  t.equals(isError, true);
   t.end();
 });
