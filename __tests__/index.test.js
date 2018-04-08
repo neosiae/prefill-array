@@ -1,7 +1,7 @@
 const prefill = require('../index');
 const test = require('tape');
 
-test('should work with number greater than 0', t => {
+test('should work with any value', t => {
   t.deepEqual(prefill(1, 1), [1]);
   t.deepEqual(prefill(5, 1), [1, 1, 1, 1, 1]);
   t.deepEqual(prefill(3, 1.5), [1.5, 1.5, 1.5]);
